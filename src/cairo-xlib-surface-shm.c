@@ -42,7 +42,7 @@
 #include "cairo-xlib-private.h"
 #include "cairo-xlib-surface-private.h"
 
-#if !HAVE_X11_EXTENSIONS_XSHM_H || !(HAVE_X11_EXTENSIONS_SHMPROTO_H || HAVE_X11_EXTENSIONS_SHMSTR_H)
+#if !HAVE_X11_EXTENSIONS_XSHM_H || !(HAVE_X11_EXTENSIONS_SHMPROTO_H || HAVE_X11_EXTENSIONS_SHMSTR_H) || defined(ANDROID)
 void _cairo_xlib_display_init_shm (cairo_xlib_display_t *display)
 {
     display->shm = NULL;
