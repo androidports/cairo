@@ -149,7 +149,9 @@ preamble (cairo_test_context_t *ctx)
     printf ("pdf-mime-data: Please check %s to ensure it looks/prints correctly.\n", filename);
 
     sprintf (command, "pdfimages -j %s %s", filename, CAIRO_TEST_OUTPUT_DIR "/" BASENAME);
+#ifndef IPHONE
     exit_status = system (command);
+#endif
     free (filename);
     if (exit_status) {
 	cairo_test_log (ctx, "pdfimages failed with exit status %d\n", exit_status);

@@ -919,8 +919,10 @@ cairo_boilerplate_open_any2ppm (const char   *filename,
 	goto POPEN;
 
     if (! any2ppm_daemon_exists ()) {
+#ifndef IPHONE
 	if (system (any2ppm) != 0)
 	    goto POPEN;
+#endif
     }
 
     sk = socket (PF_UNIX, SOCK_STREAM, 0);
